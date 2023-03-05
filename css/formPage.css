@@ -1,0 +1,59 @@
+html, body {
+    min-height: 100%;
+}
+    body, div, form, input, select, p { 
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 16px;
+    color: #eee;
+}
+h1, h2 {
+    text-transform: uppercase;
+    font-weight: 400;
+}
+h2 {
+    margin: 0 0 0 8px;
+}
+.main-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.5); 
+}
+
+.fa-graduation-cap {
+    font-size: 72px;
+}
+form {
+    background: rgba(84, 85, 85, 0.7); 
+}
+.title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+}
+input{
+    padding: 10px;
+    margin-bottom: 30px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #eee;
+}
+input::placeholder {
+    color: #eee;
+    margin-top: 15px;
+}
+.btn-success{
+    margin-left: 25%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
