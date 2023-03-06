@@ -39,18 +39,19 @@
         <div class="productAdd">
 
             <div class="main-block">
-                <form action="/">
+                <form action="php/addProduct.php" method="POST">
                   <div class="title">
                     <i class="fas fa-pencil-alt"></i> 
                     <h2>Add Product Details</h2>
                   </div>
                   <div class="info">
-                    <input class="fname" type="text" name="name" placeholder="Product Name">
-                    <input type="text" name="name" placeholder="Brand">
-                    <input type="text" name="name" placeholder="Item Price">
-                    <input type="text" name="name" placeholder="quantity">
+                    <input class="fname" type="text" id="modelNo" name="modelNo" placeholder="model No">
+                    <input class="fname" type="text" id="ProductName" name="ProductName" placeholder="Product Name">
+                    <input type="text" id="Brand" name="Brand" placeholder="Brand">
+                    <input type="text" id="ItemPrice" name="ItemPrice" placeholder="Item Price">
+                    <input type="text" id="quantity" name="quantity" placeholder="quantity">
                   </div>
-                  <button type="submit" class="btn btn-success" href="/">Submit</button>
+                  <button type="submit" class="btn btn-success">Submit</button>
                 </form>
               </div>
 
