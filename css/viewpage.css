@@ -1,0 +1,42 @@
+.left-side{
+    background-color: blueviolet;
+    margin: 5%;
+    padding: 5%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.left-side button{
+    margin-left: 10px;
+    margin-bottom: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.left-side input{
+    height: 40px;
+    border:none;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgb(255, 255, 255);
+
+}
+input::placeholder {
+    color: #eee;
+    margin-top: 15px;
+}
+
+
+.right-side{
+    background-color: rgb(157, 31, 207);
+    margin: 5%;
+    padding: 5%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+table, th, td {
+    border: 1px solid;
+
+  }
