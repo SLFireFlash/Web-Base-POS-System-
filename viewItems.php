@@ -38,7 +38,7 @@
         </nav>
 
         <div class="left-side container">
-            <form action="" method="post">
+            <form action="?" method="post">
                 <input type="text" id="serach-product" name="search-product" placeholder="Product Name">
                 <input type="text" id="search-Bike" name="search-Bike" placeholder="Bike">
                 <button type="submit" class="btn btn-success">Search</button>
@@ -81,11 +81,12 @@
                     </td>
                 </tr>
                 <?php
-                    include "php/dbConn.php";
+                    function search(){
+                        include "php/dbConn.php";
                         $bike =$_POST["search-Bike"];
                         $productName =$_POST["search-product"];
 
-                        $sqlSearch = "SELECT ProductName,Brand,ItemPrice,quantity From product ";
+                        $sqlSearch = "SELECT ProductName,Brand,ItemPrice,quantity From product WHERE Bike = '$bike' AND ProductName = '$productName' ";
                         $result = $conn->query($sqlSearch);
 
                     if ($result->num_rows > 0) {
@@ -103,7 +104,14 @@
                     } else {
                     echo "0 results";
                     }
-                    ?>
+                }
+                
+                if($_SERVER['REQUEST_METHOD']=='POST')
+                {
+                    
+                    search();
+                } 
+                ?>
 
             </table>
 
