@@ -38,12 +38,27 @@
         </nav>
 
         <div class="left-side container">
-            <form action="/" method="post">
+            <form action="" method="post">
                 <input type="text" id="serach-product" name="search-product" placeholder="Product Name">
-                <input type="text" id="search-Brand" name="search-Brand" placeholder="Brand">
+                <input type="text" id="search-Bike" name="search-Bike" placeholder="Bike">
                 <button type="submit" class="btn btn-success">Search</button>
 
             </form>
+            <!-- Example single danger button -->
+<!-- 
+            <div class="container">
+                <nav>
+                    <input id="toggle" type="checkbox" checked>
+                    <h2>Drop Down Menu</h2>
+                    <ul>
+                        <li><a href="#chapter1">Chapter 01</a></li>
+                        <li><a href="#chapter2">Chapter 02</a></li>
+                        <li><a href="#chapter3">Chapter 03</a></li>
+                        <li><a href="#chapter4">Chapter 04</a></li>
+                    </ul>
+                </nav>
+            </div> -->
+            <!-- <button type="submit" class="btn btn-success">Search</button> -->
             
         </div>
         <div class="right-side container">
@@ -52,23 +67,45 @@
                     <td>
                         product Name
                     </td>
+
                     <td>
                         brand
                     </td>
+
                     <td>
                         Price
                     </td>
+
                     <td>
-                        <button type="button" class="btn">cart</button>
+                        Add to cart
                     </td>
-
                 </tr>
-                <tr>
+                <?php
+                    include "php/dbConn.php";
+                        $bike =$_POST["search-Bike"];
+                        $productName =$_POST["search-product"];
 
-                </tr>
+                        $sqlSearch = "SELECT ProductName,Brand,ItemPrice,quantity From product ";
+                        $result = $conn->query($sqlSearch);
+
+                    if ($result->num_rows > 0) {
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>". $row["ProductName"]. "</td>";
+                        echo "<td>". $row["Brand"]. "</td>";
+                        echo "<td>". $row["ItemPrice"]. "</td>";
+                        echo "<td>". $row["quantity"]. "</td>";
+                        echo "</tr>";
+
+
+                    }
+                    } else {
+                    echo "0 results";
+                    }
+                    ?>
+
             </table>
-
-            </form>
 
         </div>
 
