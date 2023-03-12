@@ -71,7 +71,10 @@
                     <td>
                         brand
                     </td>
-
+                    <td>
+                        quantity
+                    </td>
+                    
                     <td>
                         Price
                     </td>
@@ -95,8 +98,9 @@
                         echo "<tr>";
                         echo "<td>". $row["ProductName"]. "</td>";
                         echo "<td>". $row["Brand"]. "</td>";
-                        echo "<td>". $row["ItemPrice"]. "</td>";
                         echo "<td>". $row["quantity"]. "</td>";
+                        echo "<td>". $row["ItemPrice"]. "</td>";
+                        echo "<td> <button type='button' class='btn btn-info'>Cart</button></td>";
                         echo "</tr>";
 
 
