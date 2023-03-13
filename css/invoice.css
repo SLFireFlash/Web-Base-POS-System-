@@ -93,3 +93,11 @@
 .Address{
     border: none;
 }
+.lastItem{
+    display: flex;
+    justify-content: end;
+}
+.lastItemAdd{
+    display: flex;
+    flex-direction: column;
+}

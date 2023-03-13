@@ -39,69 +39,63 @@
 
         <div class="makeBill">
             <div class="invoice-box">
-                <table cellpadding="0" cellspacing="0">
+                <table>
                     <tr class="top">
-                        <td colspan="2">
-                            <table >
-                                <tr>
-                                    <td class="title">
-                                        <img src="images/logo.jpg" style="width: 80%; max-width: 80px" />
-                                    </td>
-    
-                                    <td id="InvoiceTD">
-                                        Invoice #: 123<br/>
-                                        Created: January 1, 2015<br/>
-                                        Due: February 1, 2015
-                                    </td>
-                                </tr>
-                            </table>
+                        <td class="title">
+                            <img src="images/logo.jpg" style="width: 80%; max-width: 80px" />
+                        </td>
+                        <td>
+
+                        </td>
+                        <td id="InvoiceTD" class="lastItem">
+                                <p>time and date not found</p>
                         </td>
                     </tr>
     
                     <tr class="information">
-                        <td colspan="2">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <input type="text" placeholder="Address" class="address"><br />
-                                        <input type="text" placeholder="Address" class="address"><br />
-                                        <input type="text" placeholder="Address" class="address"><br />
-                                    </td>
+                            <td class="lastItemAdd">
+                                <input type="text" placeholder="Address" class="address">
+                                <input type="text" placeholder="Address" class="address">
+                                <input type="text" placeholder="Address" class="address">
+                            </td>
+                            <td>
 
-                                </tr>
-                            </table>
-                        </td>
+                            </td>
+                            <td class="lastItemAdd">
+                                <input type="text" placeholder="Address" class="address">
+                                <input type="text" placeholder="Address" class="address">
+                                <input type="text" placeholder="Address" class="address">
+                            </td>
                     </tr>
     
                     <tr class="heading">
                         <td>Item</td>
                         <td>quantity</td>
-                        <td>Price</td>
+                        <td class="lastItem">Price</td>
                     </tr>
     
                     <tr class="item">
                         <td>test</td>
                         <td>50</td>
-                        <td>$300.00</td>
+                        <td class="lastItem">$300.00</td>
                     </tr>
     
                     <tr class="item">
                         <td>test</td>
                         <td>50</td>
-
-    
-                        <td>$75.00</td>
+                        <td class="lastItem">$75.00</td>
                     </tr>
     
                     <tr class="item last">
                         <td>test</td>
                         <td>50</td>
-                        <td>$10.00</td>
+                        <td class="lastItem">$10.00</td>
                     </tr>
 
                     <tr class="total">
                         <td>Total:</td>
-                        <td>$385.00</td>
+                        <td></td>
+                        <td class="lastItem">$385.00</td>
                     </tr>
                 </table>
                 </div>

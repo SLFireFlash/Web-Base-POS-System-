@@ -89,7 +89,7 @@
                         $bike =$_POST["search-Bike"];
                         $productName =$_POST["search-product"];
 
-                        $sqlSearch = "SELECT ProductName,Brand,ItemPrice,quantity From product WHERE Bike = '$bike' AND ProductName = '$productName' ";
+                        $sqlSearch = "SELECT productId,ProductName,Brand,ItemPrice,quantity From product WHERE Bike = '$bike' AND ProductName = '$productName' ";
                         $result = $conn->query($sqlSearch);
 
                     if ($result->num_rows > 0) {
@@ -100,7 +100,7 @@
                         echo "<td>". $row["Brand"]. "</td>";
                         echo "<td>". $row["quantity"]. "</td>";
                         echo "<td>". $row["ItemPrice"]. "</td>";
-                        echo "<td> <button type='button' class='btn btn-info'>Cart</button></td>";
+                        echo "<td> <button type='button' class='btn btn-info cart-btns' value =' ".$row["productId"] ."'>Cart</button></td>";
                         echo "</tr>";
 
 
@@ -144,6 +144,7 @@
 
     </footer>
     </div>
+    <script src="js/cart.js">
     <script src="https://kit.fontawesome.com/5211ff47b8.js" crossorigin="anonymous"></script>  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </div>

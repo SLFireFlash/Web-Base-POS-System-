@@ -6,8 +6,9 @@ function timeAndDate(){
     let year = currentDate.getFullYear();
     let month = currentDate.getMonth();
     let day = currentDate.getDate();
+    let time = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
 
-    const fullData = ("Invoice<br>Created : " + year + '-' + months[month] + '-' + day);
+    const fullData = ("Invoice<br>" + year + '-' + months[month] + '-' + day +"<br>" + time);
     return fullData
 
 }
