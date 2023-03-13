@@ -5,15 +5,15 @@ include "dbConn.php";
 $bike =$_POST["bike"];
 $productName =$_POST["ProductName"];
 $brand =$_POST["Brand"];
-$itemPrice =$_POST["ItemPrice"];
 $quantity =$_POST["quantity"];
+$buyingPrice = $_POST["BuyingPrice"];
+$sellingPrice =$_POST["SellingPrice"];
 
-$sql = "INSERT INTO product (bike,ProductName,Brand,ItemPrice,quantity) VALUES('$bike','$productName','$brand','$itemPrice','$quantity')";
+$sqlProduct = "INSERT INTO product (bike,ProductName,Brand,quantity,BuyingPrice,SellingPrice) VALUES('$bike','$productName','$brand','$quantity','$buyingPrice','$sellingPrice')";
 
-if($conn->query($sql)=== TRUE){
+if($conn->query($sqlProduct)=== TRUE){
     echo "<script>alert('data added to database')</script>";
-    echo "<meta http-equiv='refresh' content='2;url=../index.html'>";
-    
+    echo "<meta http-equiv='refresh' content='1;url=../index.html'>";   
 }
 else{
     echo $conn->error;

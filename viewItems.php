@@ -89,7 +89,7 @@
                         $bike =$_POST["search-Bike"];
                         $productName =$_POST["search-product"];
 
-                        $sqlSearch = "SELECT productId,ProductName,Brand,ItemPrice,quantity From product WHERE Bike = '$bike' AND ProductName = '$productName' ";
+                        $sqlSearch = "SELECT productId,ProductName,Brand,SellingPrice,quantity From product WHERE Bike = '$bike' AND ProductName = '$productName' ";
                         $result = $conn->query($sqlSearch);
 
                     if ($result->num_rows > 0) {
@@ -99,7 +99,7 @@
                         echo "<td>". $row["ProductName"]. "</td>";
                         echo "<td>". $row["Brand"]. "</td>";
                         echo "<td>". $row["quantity"]. "</td>";
-                        echo "<td>". $row["ItemPrice"]. "</td>";
+                        echo "<td>". $row["SellingPrice"]. "</td>";
                         echo "<td> <button type='button' class='btn btn-info cart-btns' value =' ".$row["productId"] ."'>Cart</button></td>";
                         echo "</tr>";
 
