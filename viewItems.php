@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Send Massage</title>
+    <title>Search Products</title>
 
     <link rel="stylesheet" href="css/viewpage.css">
     <link rel="stylesheet" href="css/style.css">
@@ -65,14 +65,17 @@
             <table class="table-output">
                 <tr>
                     <td>
-                        product Name
+                        Bike
+                    </td>
+                    <td>
+                        Product Name
                     </td>
 
                     <td>
-                        brand
+                        Brand
                     </td>
                     <td>
-                        quantity
+                        Quantity
                     </td>
                     
                     <td>
@@ -88,19 +91,32 @@
                         include "php/dbConn.php";
                         $bike =$_POST["search-Bike"];
                         $productName =$_POST["search-product"];
+                        
+                        if(empty($bike)){
+                            $sqlSearch = "SELECT bike,productId,ProductName,Brand,SellingPrice,quantity From product WHERE ProductName = '$productName' ";
 
-                        $sqlSearch = "SELECT productId,ProductName,Brand,SellingPrice,quantity From product WHERE Bike = '$bike' AND ProductName = '$productName' ";
+                        }
+                        else if(empty($productName )){
+                            $sqlSearch = "SELECT bike,productId,ProductName,Brand,SellingPrice,quantity From product WHERE Bike = '$bike'";
+
+
+                        }
+                        else{
+                            $sqlSearch = "SELECT bike,productId,ProductName,Brand,SellingPrice,quantity From product WHERE Bike = '$bike' AND ProductName = '$productName' ";
+
+                        }
                         $result = $conn->query($sqlSearch);
 
                     if ($result->num_rows > 0) {
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
-                        echo "<tr>";
+                        echo "<tr class='itemsTd'>";
+                        echo "<td>". $row["bike"]. "</td>";
                         echo "<td>". $row["ProductName"]. "</td>";
                         echo "<td>". $row["Brand"]. "</td>";
                         echo "<td>". $row["quantity"]. "</td>";
                         echo "<td>". $row["SellingPrice"]. "</td>";
-                        echo "<td> <button type='button' class='btn btn-info cart-btns' value =' ".$row["productId"] ."'>Cart</button></td>";
+                        echo "<td> <button type='button' onclick='cart()' class='btn btn-info cart-btns' value =' ".$row["productId"] ."'>Cart</button></td>";
                         echo "</tr>";
 
 
@@ -118,9 +134,77 @@
                 ?>
 
             </table>
-
         </div>
+        <div class="bottompage">
+            <div class="hideEle" id="btn-goto-bill">
+                <button type="button" class="btn btn-info" onclick="showBill()" >Goto Bill</button>
+            </div>
+        </div>
+ 
+        <div class="makeBill hideEle" id="btn-Edit-Bill">
+            <div class="invoice-box hideEle"id="btn-Edit-Bill-form">
+                <table>
+                    <tr class="top">
+                        <td class="title">
+                            <img src="images/logo.jpg" style="width: 80%; max-width: 80px" />
+                        </td>
+                        <td>
 
+                        </td>
+                        <td id="InvoiceTD" class="lastItem">
+                                <p>time and date not found</p>
+                        </td>
+                    </tr>
+    
+                    <tr class="information">
+                            <td class="lastItemAdd">
+                                <input type="text" placeholder="Address" class="address"><br>
+                                <input type="text" placeholder="Address" class="address"><br>
+                                <input type="text" placeholder="Address" class="address"><br>
+                            </td>
+                            <td>
+
+                            </td>
+                            <td class="lastItemAdd">
+                                <input type="text" placeholder="Address" class="address"><br>
+                                <input type="text" placeholder="Address" class="address"><br>
+                                <input type="text" placeholder="Address" class="address"><br>
+                            </td>
+                    </tr>
+    
+                    <tr class="heading">
+                        <td>Item</td>
+                        <td>quantity</td>
+                        <td class="lastItem">Price</td>
+                    </tr>
+    
+                    <tr class="item">
+                        <td>test</td>
+                        <td>50</td>
+                        <td class="lastItem">$300.00</td>
+                    </tr>
+    
+                    <tr class="item">
+                        <td>test</td>
+                        <td>50</td>
+                        <td class="lastItem">$75.00</td>
+                    </tr>
+    
+                    <tr class="item last">
+                        <td>test</td>
+                        <td>50</td>
+                        <td class="lastItem">$10.00</td>
+                    </tr>
+
+                    <tr class="total">
+                        <td>Total:</td>
+                        <td></td>
+                        <td class="lastItem">$385.00</td>
+                    </tr>
+                </table>
+                </div>
+
+        </div>    
         
 
 
@@ -144,7 +228,8 @@
 
     </footer>
     </div>
-    <script src="js/cart.js">
+    <script src="js/app.js"></script>
+    <script src="js/cart.js"></script>
     <script src="https://kit.fontawesome.com/5211ff47b8.js" crossorigin="anonymous"></script>  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </div>

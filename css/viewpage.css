@@ -29,7 +29,7 @@ input::placeholder {
 
 
 .right-side{
-    background-color: rgb(240, 248, 154);
+    background-color: rgb(235, 117, 117);
 
 
 }
@@ -41,4 +41,18 @@ table, th, td {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+.bottompage{
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    padding: 5px;
+}
+.hideEle{
+    display: none;
+}
+.makeBill{
+    display: flex;
+    justify-content: center;
 }
