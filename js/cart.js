@@ -1,5 +1,4 @@
 let cartIds = [];
-const uniqueArray2 =[];
 let cartIdvalue =null;
 
 
@@ -12,7 +11,6 @@ function cart(productId,productName,brand,quantitiy,sellingPrice){
         cartBtnModify(event)   
       });
     };
-  uniCart()
   document.getElementById("btn-goto-bill").classList.remove("hideEle"); 
 
 }
@@ -25,8 +23,8 @@ function cartBtnModify(event){
 
 }
 
-function uniCart(){
-  const uniqueArray = cartIds.filter((obj, index, self) => {
+function uniCart(arrayObj){
+  const uniqueArray = arrayObj.filter((obj, index, self) => {
     return index === self.findIndex((t) => (
       t.productId === obj.productId
     ));
@@ -36,6 +34,8 @@ function uniCart(){
 }
 
 function showBill(){
+    const billItems = uniCart(cartIds);
+    console.log(billItems)
     document.getElementById("btn-goto-bill").classList.add("hideEle");
     document.getElementById("btn-Edit-Bill").classList.remove("hideEle");
     document.getElementById("btn-Edit-Bill-form").classList.remove("hideEle");
