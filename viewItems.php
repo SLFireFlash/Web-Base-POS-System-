@@ -87,6 +87,9 @@
                     <td>
                         Add to cart
                     </td>
+                    <td>
+                         quantity
+                    </td>
                 </tr>
                 <?php
                     function search(){
@@ -118,7 +121,8 @@
                         echo "<td>". $row["Brand"]. "</td>";
                         echo "<td>". $row["quantity"]. "</td>";
                         echo "<td>". $row["SellingPrice"]. "</td>";
-                        echo "<td> <button type='button' onclick='cart(\"{$row["productId"]}\",\"{$row["ProductName"]}\",\"{$row["Brand"]}\",{$row["quantity"]},{$row["SellingPrice"]})' class='btn btn-info cart-btns' value ='{$row["productId"]}'>Cart</button></td>";
+                        echo "<td> <button type='button' onclick='cart(\"{$row["productId"]}\",\"{$row["ProductName"]}\",\"{$row["Brand"]}\",{$row["SellingPrice"]})' class='btn btn-info cart-btns' value ='{$row["productId"]}'>Cart</button></td>";
+                        echo '<td><input type="text" placeholder="quantity" class="quantity-input" id="quantity-For-Bill-'.$row["productId"].'"></td>';
                         echo "</tr>";
 
 
@@ -180,6 +184,7 @@
                         <td>Item</td>
                         <td >quantity</td>
                         <td class="lastItem">Price</td>
+                        
                     </tr>
 
                 </table>

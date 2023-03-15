@@ -1,9 +1,11 @@
 let cartIds = [];
 
 
-function cart(productId,productName,brand,quantitiy,sellingPrice){ 
+function cart(productId,productName,brand,sellingPrice){ 
     const buttons = document.querySelectorAll(".cart-btns");
+    const quantitiy =document.getElementById("quantity-For-Bill-"+productId).value;
     console.log(productId,productName,brand,quantitiy,sellingPrice) 
+
     cartIds.push({productId,productName,brand,quantitiy,sellingPrice});
     for (let i = 0; i < buttons.length; i++){
       buttons[i].addEventListener("click", function(event) { 
@@ -35,7 +37,7 @@ function uniCart(arrayObj){
 function showBill(){
   let totalPrice = 0
   document.getElementById("btn-Edit-Bill-form").classList.remove("hideEle");
-    document.getElementById("btn-Edit-Bill").classList.add("hideEle");
+    document.getElementById("btn-goto-bill").classList.add("hideEle");
     const BillItems = uniCart(cartIds);
     console.log(BillItems)
     const billTable = document.getElementById("bill-items");
@@ -43,6 +45,8 @@ function showBill(){
     for(let x =0; x < BillItems.length;x++){
       
       const newRow = billTable.insertRow();
+      newRow.setAttribute("id","product-Row-Id-" +BillItems[x].productId)
+
 
       const newCell1 = newRow.insertCell();
       newCell1.textContent =BillItems[x].productName;
@@ -57,15 +61,16 @@ function showBill(){
       newCell3.classList.add("lastItem");
       newCell3.classList.add("CartTotal");
 
-      newCell3.setAttribute("id","selling-price-"+BillItems[x].productId);
 
-      newCell3.textContent = BillItems[x].sellingPrice * quantitiyId.value
+      newCell3.setAttribute("id","selling-price-"+BillItems[x].productId);
+      newCell3.innerHTML = BillItems[x].sellingPrice * quantitiyId.value + '<button type="button" class="btn-close" onclick="RemoveBillItem('+ BillItems[x].productId+')" aria-label="Close"></button>'
       totalPrice =BillItems[x].sellingPrice * quantitiyId.value
 
       quantitiyId.addEventListener('input', function() {
-        newCell3.textContent = BillItems[x].sellingPrice * quantitiyId.value
-        newCell3.setAttribute("value",BillItems[x].sellingPrice * quantitiyId.value);
         totalPrice = BillItems[x].sellingPrice * quantitiyId.value
+        newCell3.innerHTML =totalPrice +'<button type="button" class="btn-close" onclick="RemoveBillItem(' + BillItems[x].productId +')"  aria-label="Close"></button>'
+        newCell3.setAttribute("value",BillItems[x].sellingPrice * quantitiyId.value);
+        
 
       });
     }
@@ -77,6 +82,7 @@ function showBill(){
 
     const TotalCell2 = TotalRow.insertCell();
     TotalCell2.innerHTML ='<button type="button" class ="btn btn-info" onclick="showTotal()">ViewTotal</button>';
+    
 
     const TotalCel3 = TotalRow.insertCell();
     TotalCel3.setAttribute("id","Bill-total-Price");
@@ -92,3 +98,10 @@ function showTotal(){
   }
   document.getElementById("Bill-total-Price").innerHTML = total;
 }
+
+function RemoveBillItem(Id){
+  let newId ="product-Row-Id-"+Id
+  document.getElementById(newId).innerHTML = ""
+
+
+  }
