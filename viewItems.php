@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="css/viewpage.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/invoice.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
 </head>
@@ -116,7 +118,7 @@
                         echo "<td>". $row["Brand"]. "</td>";
                         echo "<td>". $row["quantity"]. "</td>";
                         echo "<td>". $row["SellingPrice"]. "</td>";
-                        echo "<td> <button type='button' onclick='cart()' class='btn btn-info cart-btns' value =' ".$row["productId"] ."'>Cart</button></td>";
+                        echo "<td> <button type='button' onclick='cart(\"{$row["productId"]}\",\"{$row["ProductName"]}\",\"{$row["Brand"]}\",{$row["quantity"]},{$row["SellingPrice"]})' class='btn btn-info cart-btns' value ='{$row["productId"]}'>Cart</button></td>";
                         echo "</tr>";
 
 
@@ -158,29 +160,30 @@
     
                     <tr class="information">
                             <td class="lastItemAdd">
-                                <input type="text" placeholder="Address" class="address"><br>
-                                <input type="text" placeholder="Address" class="address"><br>
-                                <input type="text" placeholder="Address" class="address"><br>
+                                <input type="text" placeholder="Address" class="address">
+                                <input type="text" placeholder="Address" class="address">
+                                <input type="text" placeholder="Address" class="address">
                             </td>
                             <td>
 
                             </td>
-                            <td class="lastItemAdd">
-                                <input type="text" placeholder="Address" class="address"><br>
-                                <input type="text" placeholder="Address" class="address"><br>
-                                <input type="text" placeholder="Address" class="address"><br>
+                            <td class="lastItemAdd" >
+                                <input type="text" placeholder="Address" class="address">
+                                <input type="text" placeholder="Address" class="address">
+                                <input type="text" placeholder="Address" class="address">
                             </td>
                     </tr>
     
-                    <tr class="heading">
+                    <tr class="heading" id="add-Items-To-Bill">
+
                         <td>Item</td>
-                        <td>quantity</td>
+                        <td >quantity</td>
                         <td class="lastItem">Price</td>
                     </tr>
     
-                    <tr class="item">
+                    <tr class="item" >
                         <td>test</td>
-                        <td>50</td>
+                        <td >50</td>
                         <td class="lastItem">$300.00</td>
                     </tr>
     
