@@ -195,9 +195,9 @@
                     </tr>
     
                     <tr class="item last">
-                        <td><input type="text" placeholder="Address" class="address"></td>
-                        <td><input type="text" placeholder="Address" class="address"></td>
-                        <td><input type="text" placeholder="Address" class="address"></td>
+                        <td><input type="text" placeholder="Cart Items" class="Cart Items"></td>
+                        <td><input type="text" placeholder="Cart Items" class="Cart Items"></td>
+                        <td><input type="text" placeholder="Cart Items" class="Cart Items"></td>
                     </tr>
 
                     <tr class="total">
