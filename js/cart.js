@@ -33,6 +33,7 @@ function uniCart(arrayObj){
 }
 
 function showBill(){
+  let totalPrice = 0
   document.getElementById("btn-Edit-Bill-form").classList.remove("hideEle");
     document.getElementById("btn-Edit-Bill").classList.add("hideEle");
     const BillItems = uniCart(cartIds);
@@ -49,24 +50,45 @@ function showBill(){
       const newCell2 = newRow.insertCell();
       newCell2.innerHTML = '<input type="text" placeholder="quantitiy" class="quantitiy" id="edit-Bill-quantitiy-'+BillItems[x].productId+'">'
       const quantitiyId = document.getElementById("edit-Bill-quantitiy-"+BillItems[x].productId)
+      totalPrice = quantitiyId
       quantitiyId.value =BillItems[x].quantitiy;
 
       const newCell3 = newRow.insertCell();
       newCell3.classList.add("lastItem");
+      newCell3.classList.add("CartTotal");
+
       newCell3.setAttribute("id","selling-price-"+BillItems[x].productId);
-      const sellPrice = document.getElementById("selling-price-"+BillItems[x].productId);
+
+      newCell3.textContent = BillItems[x].sellingPrice * quantitiyId.value
+      totalPrice =BillItems[x].sellingPrice * quantitiyId.value
+
       quantitiyId.addEventListener('input', function() {
         newCell3.textContent = BillItems[x].sellingPrice * quantitiyId.value
-      
-});
+        newCell3.setAttribute("value",BillItems[x].sellingPrice * quantitiyId.value);
+        totalPrice = BillItems[x].sellingPrice * quantitiyId.value
 
-      let lastPrice =BillItems[x].sellingPrice * quantitiyId.value
-      newCell3.textContent =lastPrice;
-
-      
-
-// Set the cell values
-
-
+      });
     }
+
+    const TotalRow = billTable.insertRow();
+
+    const TotalCell = TotalRow.insertCell();
+    TotalCell.textContent = "TOTAL:";
+
+    const TotalCell2 = TotalRow.insertCell();
+    TotalCell2.innerHTML ='<button type="button" class ="btn btn-info" onclick="showTotal()">ViewTotal</button>';
+
+    const TotalCel3 = TotalRow.insertCell();
+    TotalCel3.setAttribute("id","Bill-total-Price");
+    TotalCel3.classList.add("lastItem")
+
+}
+
+function showTotal(){
+  let total =0
+  const totalValue = document.querySelectorAll(".CartTotal");
+  for(let x =0;x<totalValue.length;x++){
+    total += parseInt(totalValue[x].innerHTML);
+  }
+  document.getElementById("Bill-total-Price").innerHTML = total;
 }

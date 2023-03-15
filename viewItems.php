@@ -181,30 +181,7 @@
                         <td >quantity</td>
                         <td class="lastItem">Price</td>
                     </tr>
-    
-                    <tr class="item" >
-                        <td>test</td>
-                        <td >50</td>
-                        <td class="lastItem">$300.00</td>
-                    </tr>
-    
-                    <tr class="item">
-                        <td>test</td>
-                        <td>50</td>
-                        <td class="lastItem">$75.00</td>
-                    </tr>
-    
-                    <tr class="item last">
-                        <td><input type="text" placeholder="Cart Items" class="Cart Items"></td>
-                        <td><input type="text" placeholder="Cart Items" class="Cart Items"></td>
-                        <td><input type="text" placeholder="Cart Items" class="Cart Items"></td>
-                    </tr>
 
-                    <tr class="total">
-                        <td>Total:</td>
-                        <td></td>
-                        <td class="lastItem">$385.00</td>
-                    </tr>
                 </table>
                 </div>
 
