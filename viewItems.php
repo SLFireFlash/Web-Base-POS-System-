@@ -173,7 +173,8 @@
                                 <input type="text" placeholder="Address" class="address">
                             </td>
                     </tr>
-    
+                </table>
+                <table id="bill-items">
                     <tr class="heading" id="add-Items-To-Bill">
 
                         <td>Item</td>
@@ -194,9 +195,9 @@
                     </tr>
     
                     <tr class="item last">
-                        <td>test</td>
-                        <td>50</td>
-                        <td class="lastItem">$10.00</td>
+                        <td><input type="text" placeholder="Address" class="address"></td>
+                        <td><input type="text" placeholder="Address" class="address"></td>
+                        <td><input type="text" placeholder="Address" class="address"></td>
                     </tr>
 
                     <tr class="total">
