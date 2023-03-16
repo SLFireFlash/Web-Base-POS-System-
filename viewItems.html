@@ -41,10 +41,10 @@
         </nav>
 
         <div class="left-side container">
-            <form action="?" method="POST">
+            <form id="search-form" method="POST">
                 <input type="text" id="serach-product" name="search-product" placeholder="Product Name">
                 <input type="text" id="search-Bike" name="search-Bike" placeholder="Bike">
-                <button type="button" id="btn-search-product" class="btn btn-success">Search</button>
+                <button type="submit" onclick="removeitems()" id="btn-search-product" class="btn btn-success">Search</button>
             </form>
         </div>
         <div class="right-side container" id="table-container">

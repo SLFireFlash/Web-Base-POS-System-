@@ -1,16 +1,22 @@
 console.log("file runing..");
 
+$(document).on('submit','#search-form',function(e){
+    e.preventDefault();
+    
+    $.ajax({
+    method:"POST",
+    url: "php/searchQ.php",
+    data:$(this).serialize(),
+    success: function(data){
+        $("#table-container").html(data);
 
-$(document).on('click','#btn-search-product',function(e){
-    console.log("inside function 01");
-    $.ajax({    
-      type: "GET",
-      url: "php/searchQ.php",             
-      dataType: "html",                  
-      success: function(data){    
-        console.log("inside function 02");                
-          $("#table-container").html(data); 
-         
-      }
-  });
+}});
 });
+
+
+function removeitems(){
+    const dataTable = document.getElementById("search-result-table");
+    if (dataTable != null){
+      dataTable.remove();
+    }
+  }

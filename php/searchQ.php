@@ -2,8 +2,24 @@
 
 function fetch_data(){
    include "dbConn.php";
-   $query="SELECT bike,productId,ProductName,Brand,SellingPrice,quantity From product";
-   $exec=mysqli_query($conn, $query);
+   $bike = $_POST["search-Bike"];
+   $productName =$_POST["search-product"];
+   if(empty($bike)){
+       $sqlSearch = "SELECT bike,productId,ProductName,Brand,SellingPrice,quantity From product WHERE ProductName = '$productName' ";
+       $exec=mysqli_query($conn, $sqlSearch);
+
+   }
+   else if(empty($productName )){
+       $sqlSearch = "SELECT bike,productId,ProductName,Brand,SellingPrice,quantity From product WHERE Bike = '$bike'";
+       $exec=mysqli_query($conn, $sqlSearch);
+
+
+   }
+   else{
+       $sqlSearch = "SELECT bike,productId,ProductName,Brand,SellingPrice,quantity From product WHERE Bike = '$bike' AND ProductName = '$productName' ";
+       $exec=mysqli_query($conn, $sqlSearch);
+
+   }
    if(mysqli_num_rows($exec)>0){
      $row= mysqli_fetch_all($exec, MYSQLI_ASSOC);
      return $row;  
@@ -14,7 +30,7 @@ function fetch_data(){
  }
 
 function show_data($fetchData){
- echo '<table border="1">
+ echo '<table border="1" id="search-result-table">
         <tr>
             <th>bike</th>
             <th>ProductName</th>
