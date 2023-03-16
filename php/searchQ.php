@@ -1,31 +1,49 @@
 <?php
-include "dbConn.php";
 
-$bike ="FZ";
-$pn ="horn";
+function fetch_data(){
+   include "dbConn.php";
+   $query="SELECT bike,productId,ProductName,Brand,SellingPrice,quantity From product";
+   $exec=mysqli_query($conn, $query);
+   if(mysqli_num_rows($exec)>0){
+     $row= mysqli_fetch_all($exec, MYSQLI_ASSOC);
+     return $row;  
+         
+   }else{
+     return $row=[];
+   }
+ }
 
-
-$sqlSearch = "SELECT ProductName,Brand,SellingPrice,quantity From product WHERE ProductName ='$pn' AND Bike = '$bike' ";
-$result = $conn->query($sqlSearch);
-
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo "<tr><table border='1'>";
-    echo "<td>". $row["ProductName"]. "</td>";
-    echo "<td>". $row["Brand"]. "</td>";
-    echo "<td>". $row["SellingPrice"]. "</td>";
-    echo "<td>". $row["quantity"]. "</td>";
-    echo "</tr></table>";
-
-
-  }
-} else {
-  echo "0 results";
-}
-
-
-
-
-
+function show_data($fetchData){
+ echo '<table border="1">
+        <tr>
+            <th>bike</th>
+            <th>ProductName</th>
+            <th>Brand</th>
+            <th>quantity</th>
+            <th>SellingPrice</th>
+        </tr>';
+      if(count($fetchData)>0){
+          $sn=1;
+          foreach($fetchData as $data){ 
+            echo "<tr class='itemsTd'>";
+            echo "<td>". $data["bike"]. "</td>";
+            echo "<td>". $data["ProductName"]. "</td>";
+            echo "<td>". $data["Brand"]. "</td>";
+            echo "<td>". $data["quantity"]. "</td>";
+            echo "<td>". $data["SellingPrice"]. "</td>";
+            echo '<td><input type="text" placeholder="quantity" class="quantity-input" id="quantity-For-Bill-'.$data["productId"].'"></td>';
+            echo "<td> <button type='button' onclick='cart(\"{$data["productId"]}\",\"{$data["ProductName"]}\",\"{$data["Brand"]}\",{$data["SellingPrice"]})' class='btn btn-info cart-btns' value ='{$data["productId"]}'>Cart</button></td>";
+            echo "</tr>";
+        }
+      }else{
+        
+      echo "<tr>
+            <td colspan='5'>No Data Found</td>
+          </tr>"; 
+    }
+      echo "</table>";
+    }
+    
+$fetchData= fetch_data();
+show_data($fetchData);
 ?>
