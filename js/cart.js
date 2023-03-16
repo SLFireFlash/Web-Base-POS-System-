@@ -4,9 +4,10 @@ let cartIds = [];
 function cart(productId,productName,brand,sellingPrice){ 
     const buttons = document.querySelectorAll(".cart-btns");
     const quantitiy =document.getElementById("quantity-For-Bill-"+productId).value;
-    console.log(productId,productName,brand,quantitiy,sellingPrice) 
 
+    console.log(productId,productName,brand,quantitiy,sellingPrice) 
     cartIds.push({productId,productName,brand,quantitiy,sellingPrice});
+
     for (let i = 0; i < buttons.length; i++){
       buttons[i].addEventListener("click", function(event) { 
         cartBtnModify(event)  
@@ -35,12 +36,11 @@ function uniCart(arrayObj){
 }
 
 function showBill(){
-  let totalPrice = 0
-  document.getElementById("btn-Edit-Bill-form").classList.remove("hideEle");
+
+    document.getElementById("btn-Edit-Bill-form").classList.remove("hideEle");
     document.getElementById("btn-goto-bill").classList.add("hideEle");
-    const BillItems = uniCart(cartIds);
-    console.log(BillItems)
     const billTable = document.getElementById("bill-items");
+    const BillItems = uniCart(cartIds);
 
     for(let x =0; x < BillItems.length;x++){
       
