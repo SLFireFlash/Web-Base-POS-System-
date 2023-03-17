@@ -5,7 +5,6 @@ function cart(productId,productName,brand,sellingPrice){
     const buttons = document.querySelectorAll(".cart-btns");
     const quantitiy =document.getElementById("quantity-For-Bill-"+productId).value;
 
-    console.log(productId,productName,brand,quantitiy,sellingPrice) 
     cartIds.push({productId,productName,brand,quantitiy,sellingPrice});
 
     for (let i = 0; i < buttons.length; i++){
@@ -39,7 +38,13 @@ function showBill(){
 
     document.getElementById("btn-Edit-Bill-form").classList.remove("hideEle");
     document.getElementById("btn-goto-bill").classList.add("hideEle");
+    document.getElementById("search-bar").classList.add("hideEle");
+    document.getElementById("search-result-table").classList.add("hideEle");
+    document.getElementById("final-bill-btn").innerHTML = '<button type="button" onclick="hidebillBtn()"  class="btn btn-info final-bill" style="margin-left: 42%;">finalize Bill</button>'
+    document.getElementById("nav-bar-section").remove();
+
     const billTable = document.getElementById("bill-items");
+    
     const BillItems = uniCart(cartIds);
 
     for(let x =0; x < BillItems.length;x++){
@@ -52,7 +57,7 @@ function showBill(){
       newCell1.textContent =BillItems[x].productName;
 
       const newCell2 = newRow.insertCell();
-      newCell2.innerHTML = '<input type="text" placeholder="quantitiy" class="quantitiy" id="edit-Bill-quantitiy-'+BillItems[x].productId+'">'
+      newCell2.innerHTML = '<div class="col-md-3 col-lg-3 col-xl-2 d-flex quantitiy"><input id="edit-Bill-quantitiy-'+BillItems[x].productId+'" min="0" name="quantity" value="1" type="number"class="form-control qua-val form-control-sm " style="width: 50px;" /></div>'
       const quantitiyId = document.getElementById("edit-Bill-quantitiy-"+BillItems[x].productId)
       totalPrice = quantitiyId
       quantitiyId.value =BillItems[x].quantitiy;
@@ -75,18 +80,23 @@ function showBill(){
       });
     }
 
+
+    
     const TotalRow = billTable.insertRow();
+    TotalRow.setAttribute("id","total-Row")
 
     const TotalCell = TotalRow.insertCell();
     TotalCell.textContent = "TOTAL:";
 
     const TotalCell2 = TotalRow.insertCell();
-    TotalCell2.innerHTML ='<button type="button" class ="btn btn-info" onclick="showTotal()">ViewTotal</button>';
+    TotalCell2.innerHTML ='<button type="button" id="bill-show-total" class ="btn btn-info" onclick="showTotal()">Total</button>';
     
 
     const TotalCel3 = TotalRow.insertCell();
     TotalCel3.setAttribute("id","Bill-total-Price");
+    TotalCel3.setAttribute("style","border: none;border-top: solid;border-bottom: solid;")
     TotalCel3.classList.add("lastItem")
+
 
 }
 
@@ -105,3 +115,36 @@ function RemoveBillItem(Id){
 
 
   }
+function checkout(){
+  console.log("checkout");
+}
+function hidebillBtn(){
+
+  showTotal()
+  document.getElementById("final-bill-btn").classList.add("hideEle");
+  document.getElementById("socail-icons").remove();
+  document.getElementById("bill-show-total").remove();
+
+  // const quaBtns = document.querySelectorAll(".qua-btn");
+  // quaBtns.forEach(element => {
+  //   element.remove();
+  
+  // });
+
+  const quaVal = document.querySelectorAll(".qua-val");
+  quaVal.forEach(element => {
+    element.setAttribute("disabled","true");
+    
+  });
+  const btnClose = document.querySelectorAll(".btn-close");
+  btnClose.forEach(element=>{
+    element.remove();
+  })
+  const userData =document.querySelectorAll(".user-data");
+  userData.forEach(element=>{
+    element.setAttribute("disabled","true");
+  })
+
+
+
+}

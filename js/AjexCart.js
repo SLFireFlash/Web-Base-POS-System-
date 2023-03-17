@@ -1,4 +1,3 @@
-console.log("file runing..");
 
 $(document).on('submit','#search-form',function(e){
     e.preventDefault();
@@ -12,7 +11,6 @@ $(document).on('submit','#search-form',function(e){
 
 }});
 });
-
 
 function removeitems(){
     const dataTable = document.getElementById("search-result-table");

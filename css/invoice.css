@@ -1,5 +1,5 @@
 .invoice-box {
-    max-width: 800px;
+    width: 90%;
     margin: auto;
     padding: 30px;
     border: 1px solid #eee;
@@ -21,9 +21,9 @@
     vertical-align: top;
 }
 
-.invoice-box table tr td:nth-child(2) {
+/* .invoice-box table tr td:nth-child(2) {
     text-align: right;
-}
+} */
 
 .invoice-box table tr.top table td {
     padding-bottom: 20px;
@@ -105,3 +105,13 @@
     width: 100px;
     border-radius: 5px;
 }
+
+.information input{
+    max-width: 60%;
+    margin-bottom: 5px;
+    border: none;
+    border-bottom: solid;
+    border-color: brown;
+
+}
+

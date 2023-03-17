@@ -30,13 +30,15 @@ function fetch_data(){
  }
 
 function show_data($fetchData){
- echo '<table border="1" id="search-result-table">
+ echo '<table border="1" id="search-result-table"  class="table-output">
         <tr>
             <th>bike</th>
             <th>ProductName</th>
             <th>Brand</th>
             <th>quantity</th>
             <th>SellingPrice</th>
+            <th>change quantity</th>
+            <th>add to cart</th>
         </tr>';
       if(count($fetchData)>0){
           $sn=1;
@@ -47,7 +49,23 @@ function show_data($fetchData){
             echo "<td>". $data["Brand"]. "</td>";
             echo "<td>". $data["quantity"]. "</td>";
             echo "<td>". $data["SellingPrice"]. "</td>";
-            echo '<td><input type="text" placeholder="quantity" class="quantity-input" id="quantity-For-Bill-'.$data["productId"].'"></td>';
+            echo '<td>
+                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                    <button class="btn btn-link px-2"
+                    onclick="this.parentNode.querySelector(\'input[type=number]\').stepDown()">
+                    <i class="fas fa-minus"></i>
+                    </button>
+
+                    <input id="quantity-For-Bill-' .$data["productId"] .'" min="0" name="quantity" value="1" type="number"
+                    class="form-control form-control-sm" style="width: 50px;" />
+                    
+                    <button class="btn btn-link px-2"
+                    onclick="this.parentNode.querySelector(\'input[type=number]\').stepUp()">
+                    <i class="fas fa-plus"></i>
+                    </button>
+                </div></td>';
+
+
             echo "<td> <button type='button' onclick='cart(\"{$data["productId"]}\",\"{$data["ProductName"]}\",\"{$data["Brand"]}\",{$data["SellingPrice"]})' class='btn btn-info cart-btns' value ='{$data["productId"]}'>Cart</button></td>";
             echo "</tr>";
         }

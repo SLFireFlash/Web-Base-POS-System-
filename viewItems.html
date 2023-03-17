@@ -16,7 +16,7 @@
 </head>
 <body class="bg-light">
     <div class="wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav-bar-section">
             <div class="container-fluid">
             <a class="navbar-brand" href="#">TeamHiru</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +40,7 @@
             </div>
         </nav>
 
-        <div class="left-side container">
+        <div class="left-side container" id="search-bar">
             <form id="search-form" method="POST">
                 <input type="text" id="serach-product" name="search-product" placeholder="Product Name">
                 <input type="text" id="search-Bike" name="search-Bike" placeholder="Bike">
@@ -53,7 +53,7 @@
 
         <!-- Goto bill button -->
 
-        <div class="bottompage">
+        <div class="bottompage" >
             <div class="hideEle" id="btn-goto-bill">
                 <button type="button" class="btn btn-info" onclick="showBill()" >Goto Bill</button>
             </div>
@@ -78,17 +78,18 @@
     
                     <tr class="information">
                             <td class="lastItemAdd">
-                                <input type="text" placeholder="Address" class="address">
-                                <input type="text" placeholder="Address" class="address">
-                                <input type="text" placeholder="Address" class="address">
+                                <input type="text" placeholder="Customer Name" class="user-data">
+                                <input type="text" placeholder="Phone Number" class="user-data">
+
+
                             </td>
                             <td>
 
                             </td>
                             <td class="lastItemAdd" >
+                                <!-- <input type="text" placeholder="Address" class="address">
                                 <input type="text" placeholder="Address" class="address">
-                                <input type="text" placeholder="Address" class="address">
-                                <input type="text" placeholder="Address" class="address">
+                                <input type="text" placeholder="Address" class="address"> -->
                             </td>
                     </tr>
                 </table>
@@ -96,31 +97,31 @@
                     <tr class="heading" id="add-Items-To-Bill">
 
                         <td>Item</td>
-                        <td >quantity</td>
+                        <td>quantity</td>
                         <td class="lastItem">Price</td>
                         
                     </tr>
 
                 </table>
                 </div>
-
-        </div>    
+        </div> 
+        <div class="final-bill" id="final-bill-btn"></div>   
 
     <footer class="bg-light text-muted">
-            <div class="socail-icons">
-                <a href="https://www.facebook.com/lahiru.prasanna.35/" class="me-4 link-secondary">
-                <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://twitter.com/sl_fireflash" class="me-4 link-secondary">
-                <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.instagram.com/sl_fireflash/" class="me-4 link-secondary">
-                <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://github.com/SLFireFlash" class="me-4 link-secondary">
-                <i class="fab fa-github"></i>
-                </a>
-            </div>
+        <div class="socail-icons" id="socail-icons">
+            <a href="https://www.facebook.com/lahiru.prasanna.35/" class="me-4 link-secondary">
+            <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com/sl_fireflash" class="me-4 link-secondary">
+            <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/sl_fireflash/" class="me-4 link-secondary">
+            <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://github.com/SLFireFlash" class="me-4 link-secondary">
+            <i class="fab fa-github"></i>
+            </a>
+        </div>
             <p>Powered By TeamHiru</p>
 
     </footer>

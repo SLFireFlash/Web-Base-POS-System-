@@ -27,12 +27,6 @@ input::placeholder {
     margin-top: 15px;
 }
 
-
-.right-side{
-    background-color: rgb(235, 117, 117);
-
-
-}
 table, th, td {
     font-weight: 600;
     padding: 5px;
@@ -43,7 +37,6 @@ table, th, td {
     justify-content: space-evenly;
 }
 .bottompage{
-    background-color: aqua;
     display: flex;
     justify-content: center;
     margin: 20px;
@@ -55,4 +48,9 @@ table, th, td {
 .makeBill{
     display: flex;
     justify-content: center;
+}
+
+.final-bill{
+    margin-top: 10px;
+    padding: 10px;
 }
