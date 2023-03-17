@@ -40,7 +40,7 @@ function showBill(){
     document.getElementById("btn-goto-bill").classList.add("hideEle");
     document.getElementById("search-bar").classList.add("hideEle");
     document.getElementById("search-result-table").classList.add("hideEle");
-    document.getElementById("final-bill-btn").innerHTML = '<button type="button" onclick="hidebillBtn()"  class="btn btn-info final-bill" style="margin-left: 42%;">finalize Bill</button>'
+    document.getElementById("final-bill-btn").innerHTML = '<button type="submit" onclick="hidebillBtn()" id="final-bill-submit"  class="btn btn-info final-bill" style="margin-left: 42%;">finalize Bill</button>'
     document.getElementById("nav-bar-section").remove();
 
     const billTable = document.getElementById("bill-items");
@@ -119,7 +119,6 @@ function checkout(){
   console.log("checkout");
 }
 function hidebillBtn(){
-
   showTotal()
   document.getElementById("final-bill-btn").classList.add("hideEle");
   document.getElementById("socail-icons").remove();
@@ -145,6 +144,23 @@ function hidebillBtn(){
     element.setAttribute("disabled","true");
   })
 
+}
 
-
+function removeitems(){
+  const dataTable = document.getElementById("search-result-table");
+  if (dataTable != null){
+    dataTable.remove();
+  }
+  $(document).on('submit','#search-form',function(e){
+    console.log("searched")
+    e.preventDefault();
+    $.ajax({
+    method:"POST",
+    url: "php/searchQ.php",
+    data:$(this).serialize(),
+    success: function(data){
+        $("#table-container").html(data);
+  
+  }});
+  });
 }
