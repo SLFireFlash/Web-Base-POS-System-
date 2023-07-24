@@ -13,7 +13,7 @@ $sqlProduct = "INSERT INTO product (bike,ProductName,Brand,quantity,BuyingPrice,
 
 if($conn->query($sqlProduct)=== TRUE){
     echo "<script>alert('data added to database')</script>";
-    echo "<meta http-equiv='refresh' content='1;url=../index.html'>";   
+    echo "<meta http-equiv='refresh' content='1;url=../addProduct.html'>";   
 }
 else{
     echo $conn->error;
