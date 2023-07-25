@@ -8,10 +8,11 @@
 <ol>
   <li>Tab open wena eka <b>Done</b></li>
   <li>Search karala bill eka add karam quntity eka adu wenne na</li>
-  <li>Bill eke ekak mila pennanne na <b>Done</b> , bike eka pennanne na</li>
-  <li>Bill eke manai no ekai danna one</li>
-  <li>View product kiyan ekat tab ekak open wenna one na</li>
-  <li>Deate bass eka balann ba </li>
+  <li>Bill eke ekak mila pennanne na <b>Done</b></li>
+  <li>bike eka pennanne na <b>Done</b></li>
+  <li>Bill eke manai no ekai danna one <b>Done</b></li>
+  <li>View product kiyan ekat tab ekak open wenna one na <b>Done</b></li>
+  <li>database eka balann ba <b>Done</b></li>
   <li>Date base eken remove karann one</li>
   <li>Date bass eka pdf ekak widihat gann one</li>
 </ol>
