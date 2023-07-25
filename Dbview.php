@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bill</title>
-
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/invoice.css">
+    <title>View Products</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
 </head>
@@ -37,30 +34,43 @@
             </div>
         </nav>
 
-        
+    <?php
+    // Connect to the database
+    include "php/dbconn.php";
 
-    <footer class="bg-light text-muted">
-            <div class="socail-icons">
-                <a href="https://www.facebook.com/lahiru.prasanna.35/" class="me-4 link-secondary">
-                <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://twitter.com/sl_fireflash" class="me-4 link-secondary">
-                <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.instagram.com/sl_fireflash/" class="me-4 link-secondary">
-                <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://github.com/SLFireFlash" class="me-4 link-secondary">
-                <i class="fab fa-github"></i>
-                </a>
-            </div>
-            <p>Powered By TeamHiru</p>
+    // Retrieve data from the database
+    $sql = "SELECT bike,productId,ProductName,Brand,BuyingPrice,SellingPrice,quantity From product";
+    $result = mysqli_query($conn, $sql);
+    ?>
 
-    </footer>
-    </div>
-    <script src="js/app.js"></script>
-    <script src="https://kit.fontawesome.com/5211ff47b8.js" crossorigin="anonymous"></script>  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-</div>
+    <table border="1" class="table table-hover table-striped table-bordered border-primary">
+        <tr>
+            <th scope="col">product Id</th>
+            <th scope="col">product name</th>
+            <th scope="col">bike</th>
+            <th scope="col">brand</th>
+            <th scope="col">buying price</th>
+            <th scope="col">selling price</th>
+            <th scope="col">quantity</th>
+        </tr>
+
+        <?php while ($row = mysqli_fetch_assoc($result)): ?>
+        <tr scope="row">
+        <td><?php echo $row['ProductName']; ?></td>
+            <td><?php echo $row['ProductName']; ?></td>
+            <td><?php echo $row['bike']; ?></td>
+            <td><?php echo $row['Brand']; ?></td>
+            <td><?php echo $row['BuyingPrice']; ?></td>
+            <td><?php echo $row['SellingPrice']; ?></td>
+            <td><?php echo $row['quantity']; ?></td>
+        </tr>
+        <?php endwhile; ?>
+
+    </table>
+
+    <?php
+    // Close the database connection
+    mysqli_close($conn);
+    ?>
 </body>
 </html>

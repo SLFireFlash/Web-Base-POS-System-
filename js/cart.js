@@ -48,13 +48,16 @@ function showBill(){
     const BillItems = uniCart(cartIds);
 
     for(let x =0; x < BillItems.length;x++){
-      
+
       const newRow = billTable.insertRow();
       newRow.setAttribute("id","product-Row-Id-" +BillItems[x].productId)
 
 
       const newCell1 = newRow.insertCell();
       newCell1.textContent =BillItems[x].productName;
+
+      const newCell4 = newRow.insertCell();
+      newCell4.textContent =BillItems[x].sellingPrice;
 
       const newCell2 = newRow.insertCell();
       newCell2.innerHTML = '<div class="col-md-3 col-lg-3 col-xl-2 d-flex quantitiy"><input id="edit-Bill-quantitiy-'+BillItems[x].productId+'" min="0" name="quantity" value="1" type="number"class="form-control qua-val form-control-sm " style="width: 50px;" /></div>'
@@ -87,6 +90,8 @@ function showBill(){
 
     const TotalCell = TotalRow.insertCell();
     TotalCell.textContent = "TOTAL:";
+
+    const TotalCell3 = TotalRow.insertCell();
 
     const TotalCell2 = TotalRow.insertCell();
     TotalCell2.innerHTML ='<button type="button" id="bill-show-total" class ="btn btn-info" onclick="showTotal()">Total</button>';

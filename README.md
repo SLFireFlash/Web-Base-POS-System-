@@ -13,5 +13,5 @@
   <li>View product kiyan ekat tab ekak open wenna one na</li>
   <li>Deate bass eka balann ba </li>
   <li>Date base eken remove karann one</li>
-  <li>Date bass eka pdf ekak widihat gann one</li></li>
+  <li>Date bass eka pdf ekak widihat gann one</li>
 </ol>

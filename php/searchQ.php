@@ -30,15 +30,15 @@ function fetch_data(){
  }
 
 function show_data($fetchData){
- echo '<table border="1" id="search-result-table"  class="table-output">
+ echo '<table id="search-result-table"  class="table table-hover table-striped">
         <tr>
-            <th>bike</th>
-            <th>ProductName</th>
-            <th>Brand</th>
-            <th>quantity</th>
-            <th>SellingPrice</th>
-            <th>change quantity</th>
-            <th>add to cart</th>
+            <th scope="col" >bike</th>
+            <th scope="col">ProductName</th>
+            <th scope="col">Brand</th>
+            <th scope="col">quantity</th>
+            <th scope="col">SellingPrice</th>
+            <th scope="col">change quantity</th>
+            <th scope="col">add to cart</th>
         </tr>';
       if(count($fetchData)>0){
           $sn=1;
