@@ -66,7 +66,7 @@ function show_data($fetchData){
                 </div></td>';
 
 
-            echo "<td> <button type='button' onclick='cart(\"{$data["productId"]}\",\"{$data["ProductName"]}\",\"{$data["Brand"]}\",{$data["SellingPrice"]})' class='btn btn-info cart-btns' value ='{$data["productId"]}'>Cart</button></td>";
+            echo "<td> <button type='button' onclick='cart(\"{$data["productId"]}\",\"{$data["ProductName"]}\",\"{$data["Brand"]}\",{$data["SellingPrice"]},\"{$data["bike"]}\")' class='btn btn-info cart-btns' value ='{$data["productId"]}'>Cart</button></td>";
             echo "</tr>";
         }
       }else{

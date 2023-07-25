@@ -1,11 +1,12 @@
 let cartIds = [];
 
 
-function cart(productId,productName,brand,sellingPrice){ 
+function cart(productId,productName,brand,sellingPrice,bike){ 
+    console.log(productId,productName,brand,sellingPrice,bike)
     const buttons = document.querySelectorAll(".cart-btns");
     const quantitiy =document.getElementById("quantity-For-Bill-"+productId).value;
 
-    cartIds.push({productId,productName,brand,quantitiy,sellingPrice});
+    cartIds.push({productId,productName,brand,quantitiy,sellingPrice,bike});
 
     for (let i = 0; i < buttons.length; i++){
       buttons[i].addEventListener("click", function(event) { 
@@ -46,6 +47,7 @@ function showBill(){
     const billTable = document.getElementById("bill-items");
     
     const BillItems = uniCart(cartIds);
+    console.log(BillItems)
 
     for(let x =0; x < BillItems.length;x++){
 
@@ -55,6 +57,10 @@ function showBill(){
 
       const newCell1 = newRow.insertCell();
       newCell1.textContent =BillItems[x].productName;
+
+      const newCell5 = newRow.insertCell();
+      newCell5.textContent =BillItems[x].bike;
+
 
       const newCell4 = newRow.insertCell();
       newCell4.textContent =BillItems[x].sellingPrice;
@@ -92,6 +98,7 @@ function showBill(){
     TotalCell.textContent = "TOTAL:";
 
     const TotalCell3 = TotalRow.insertCell();
+    const TotalCell4 = TotalRow.insertCell();
 
     const TotalCell2 = TotalRow.insertCell();
     TotalCell2.innerHTML ='<button type="button" id="bill-show-total" class ="btn btn-info" onclick="showTotal()">Total</button>';
