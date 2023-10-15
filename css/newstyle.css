@@ -74,3 +74,39 @@ html{
     justify-content: center;
 }
 
+/*delete product file*/
+#search_product{
+    height: 15vh;
+    width: 60%;
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    background-color: #057d88;
+    border-radius:1rem ;
+}
+.search-title{
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    color: white;
+}
+#search-form input{
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    outline: none;
+    margin-bottom: 10px;
+
+}
+#search-form button{
+    width: fit-content;
+    height:fit-content;
+    padding: 3px;
+    background: linear-gradient(to bottom, #3498db, #2980b9);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
