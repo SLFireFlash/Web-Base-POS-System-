@@ -56,7 +56,7 @@
 
         <?php while ($row = mysqli_fetch_assoc($result)): ?>
         <tr scope="row">
-        <td><?php echo $row['ProductName']; ?></td>
+        <td><?php echo $row['productId']; ?></td>
             <td><?php echo $row['ProductName']; ?></td>
             <td><?php echo $row['bike']; ?></td>
             <td><?php echo $row['Brand']; ?></td>
