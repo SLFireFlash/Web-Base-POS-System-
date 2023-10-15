@@ -56,8 +56,8 @@ function show_data($fetchData){
                     <i class="fas fa-minus"></i>
                     </button>
 
-                    <input id="quantity-For-Bill-' .$data["productId"] .'" min="0" name="quantity" value="1" type="number"
-                    class="form-control form-control-sm" style="width: 50px;" />
+                    <input id="quantity-For-Bill-' .$data["productId"] .'" min="0" name="quantity" value="'. $data["quantity"].'" type="number"
+                    class="form-control form-control-sm maxinput" style="width: 70px;" />
                     
                     <button class="btn btn-link px-2"
                     onclick="this.parentNode.querySelector(\'input[type=number]\').stepUp()">
@@ -66,8 +66,8 @@ function show_data($fetchData){
                 </div></td>';
 
 
-            echo "<td> <button type='button' onclick='cart(\"{$data["productId"]}\",\"{$data["ProductName"]}\",\"{$data["Brand"]}\",{$data["SellingPrice"]},\"{$data["bike"]}\")' class='btn btn-info cart-btns' value ='{$data["productId"]}'>Cart</button></td>";
-            echo "</tr>";
+                echo "<td> <button type='button' onclick='cart(\"{$data["productId"]}\",\"{$data["ProductName"]}\",\"{$data["Brand"]}\",{$data["SellingPrice"]},\"{$data["bike"]}\")' class='btn btn-info cart-btns' value ='{$data["productId"]}'>Cart</button></td>";
+                echo "</tr>";
         }
       }else{
         

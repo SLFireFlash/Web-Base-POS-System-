@@ -47,7 +47,7 @@ function show_data($fetchData){
             echo "<td>". $data["bike"]. "</td>";
             echo "<td>". $data["ProductName"]. "</td>";
             echo "<td>". $data["Brand"]. "</td>";
-            echo "<td>". $data["quantity"]. "</td>";
+            echo "<td><input type='number' id='quantity_". $data["productId"]. "' name='search-product' placeholder='Product Name' value='". $data["quantity"]."'></td>";
             echo "<td><input type='number' id='Buy_". $data["productId"]. "' name='search-product' placeholder='Product Name' value='". $data["BuyingPrice"]."'></td>";
             echo "<td><input type='number' id='sell_". $data["productId"]. "' name='search-product' placeholder='Product Name' value='". $data["SellingPrice"]."'></td>";
             echo "<td><button type='button' class='btn btn-warning' onclick='updateProductData(\"{$data["productId"]}\")'>Update</button></td>";

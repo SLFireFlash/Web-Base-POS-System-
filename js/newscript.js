@@ -62,10 +62,12 @@ function SearchForUpdate(){
 function updateProductData(productId){
     const sell=document.getElementById("sell_"+productId).value;
     const buy =document.getElementById("Buy_"+productId).value;
+    const quantity_id=document.getElementById("quantity_"+productId).value;
     let coll_data =[];
     coll_data.push(productId);
     coll_data.push(buy);
     coll_data.push(sell);
+    coll_data.push(quantity_id);
     const send_coll = JSON.stringify(coll_data);
 
     console.log("new buy "+buy)
@@ -83,8 +85,5 @@ function updateProductData(productId){
 
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(send_coll);
-
-    
-
-    
+   
 }

@@ -1,19 +1,27 @@
 let cartIds = [];
 
 
-function cart(productId,productName,brand,sellingPrice,bike){ 
+function cart(productId,productName,brand,sellingPrice,bike,oquantity){
     console.log(productId,productName,brand,sellingPrice,bike)
     const buttons = document.querySelectorAll(".cart-btns");
     const quantitiy =document.getElementById("quantity-For-Bill-"+productId).value;
+    console.log(oquantity,quantitiy);
+    if(oquantity>quantitiy){
+      alert("You dont have that much quantitiy of "+productName + ".Items in your Inventory: "+ oquantity);
+    }
+    else{
+      cartIds.push({productId,productName,brand,quantitiy,sellingPrice,bike});
 
-    cartIds.push({productId,productName,brand,quantitiy,sellingPrice,bike});
+      for (let i = 0; i < buttons.length; i++){
+        buttons[i].addEventListener("click", function(event) { 
+          cartBtnModify(event)  
+        });
+      };
+    document.getElementById("btn-goto-bill").classList.remove("hideEle"); 
+    }
 
-    for (let i = 0; i < buttons.length; i++){
-      buttons[i].addEventListener("click", function(event) { 
-        cartBtnModify(event)  
-      });
-    };
-  document.getElementById("btn-goto-bill").classList.remove("hideEle"); 
+
+
 
 }
 
