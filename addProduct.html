@@ -2,68 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Product</title>
-
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/formPage.css">
+    <title>Add product</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="./css/newstyle.css">
+    <link rel="stylesheet" href="./css/newAddproduct.css">
 </head>
-<body class="bg-light">
-    <div class="wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-            <a class="navbar-brand" href="#">TeamHiru</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">JM Motors</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
-                </ul>
-                <ul class="navbar-nav  mb-auto me-2 me-lg-0">
-                    <li>
-                        <a class="nav-link active" aria-current="page" href="#">contact us</a>
-                    </li>
-                    <li>
-                        <a class="nav-link active" aria-current="page" href="#">more info</a>
-                    </li>
-                </ul>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                Alpha Release
+            </span>
             </div>
-            </div>
-        </nav>
-        <div class="productAdd">
+        </div>
+    </nav>
 
-            <div class="main-block">
-                <form action="php/addProduct.php" method="POST">
-                  <div class="title">
-                    <i class="fas fa-pencil-alt"></i> 
+    <section id="Add_product">
+        <div class="data-form">
+            <form action="php/addProduct.php" method="POST">
+                <div class="title"> 
                     <h2>Add Product Details</h2>
-                  </div>
-                  <div class="info">
-                    <!-- <input class="fname" type="text" id="modelNo" name="modelNo" placeholder="model No"> -->
+                </div>
+                <div class="product-info">
                     <input type="text" id="bike" name="bike" placeholder="bike">
-                    <input class="fname" type="text" id="ProductName" name="ProductName" placeholder="Product Name">
+                    <input class="text" type="text" id="ProductName" name="ProductName" placeholder="Product Name">
                     <input type="text" id="Brand" name="Brand" placeholder="Brand">
                     <input type="text" id="quantity" name="quantity" placeholder="quantity">
                     <input type="text" id="BuyingPrice" name="BuyingPrice" placeholder="Buying Price">
                     <input type="text" id="SellingPrice" name="SellingPrice" placeholder="Selling Price">
-
-                  </div>
-                  <button type="submit" class="btn btn-success">Submit</button>
-                  
-                </form>
-              </div>
-
+                </div>
+                <div class="product-submit">
+                    <button type="submit">Add</button>
+                </div>  
+            </form>
         </div>
+    </section>
 
 
-
-    <footer class="bg-light text-muted">
+    <section id="Page_footer">
+        <footer class="bg-light text-muted">
             <div class="socail-icons">
                 <a href="https://www.facebook.com/lahiru.prasanna.35/" class="me-4 link-secondary">
                 <i class="fab fa-facebook-f"></i>
@@ -79,11 +70,10 @@
                 </a>
             </div>
             <p>Powered By TeamHiru</p>
+        </footer>
+      </section>
 
-    </footer>
-    </div>
     <script src="https://kit.fontawesome.com/5211ff47b8.js" crossorigin="anonymous"></script>  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-</div>
-</body>
+
 </html>
