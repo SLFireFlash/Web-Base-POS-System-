@@ -15,6 +15,7 @@
   <li>database eka balann ba <b>Done</b></li>
   <li>Date base eken remove karann one</li>
   <li>Date bass eka pdf ekak widihat gann one</li>
+  <li>testing</li>
 </ol>
 <h2>Bug Fixes</h2>
   <li>new tab opening for each button</li>
